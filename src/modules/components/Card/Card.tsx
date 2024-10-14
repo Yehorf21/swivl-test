@@ -27,9 +27,15 @@ export const Card: React.FC<Props> = ({ info, noShare }) => {
 
   const isDesktop = useMediaQuery({ minWidth: 1200 });
 
-  const handleWindow = () => {
+  const handleWindowMobile = () => {
     if (!isDesktop) {
       setIsWindowShown(!isWindowShown);
+    }
+  };
+
+  const handleWindowDesktop = (value: boolean) => {
+    if (isDesktop) {
+      setIsWindowShown(value);
     }
   };
 
@@ -40,9 +46,9 @@ export const Card: React.FC<Props> = ({ info, noShare }) => {
   return (
     <article
       className="card"
-      onMouseEnter={() => setIsWindowShown(true)}
-      onMouseLeave={() => setIsWindowShown(false)}
-      onClick={handleWindow}
+      onMouseEnter={() => handleWindowDesktop(true)}
+      onMouseLeave={() => handleWindowDesktop(false)}
+      onClick={handleWindowMobile}
     >
       {isShared && (
         <div className="card__share">
