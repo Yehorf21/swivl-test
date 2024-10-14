@@ -1,0 +1,1 @@
+import{j as e,a as r,p as o}from"./index-fY_aBzig.js";import{A as a}from"./Account-vKOsmNQB.js";import{C as t}from"./Card-wLThot8w.js";import"./index-Ms5epl76.js";const c=()=>e.jsxs("section",{className:"feed",children:[e.jsx(a,{profileInfo:r}),e.jsx("div",{className:"feed__cards",children:o.map(s=>e.jsx(t,{info:s,noShare:!0},s.title))})]});export{c as default};
