@@ -1,0 +1,20 @@
+@import './variables';
+@import './mixins';
+
+@import './modules/NavBar/NavBar.module';
+@import './modules/Profile/Profile.module';
+
+@import './modules/Feed/Feed.module';
+@import './modules/Explore/Explore.module';
+@import './modules/Discussions/Discussions.module';
+
+@import './modules/components/Account/Account.module';
+@import './modules/components/Card/Card.module';
+@import './modules/components/Dropdown/Dropdown.module';
+
+body {
+  margin: 0;
+  
+  background-color: $bg-main;
+  width: 100vw;
+}

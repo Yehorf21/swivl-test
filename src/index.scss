@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 1440px;
+  // min-height: 100dh;
+
+  display: flex;
+  justify-content: center;
+
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+section {
+  margin-block: 50px;
+}

@@ -1,0 +1,115 @@
+.account {
+  position: relative;
+  max-width: 350px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__top {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__image {
+    height: 120px;
+    width: 120px;
+
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__name-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__name {
+    margin: 0;
+    max-width: 150px;
+
+    @include text-type(24px, 26px, $font-main, $text-main);
+    font-weight: 600;
+  }
+
+  &__socials {
+    @include text-type(16px, 20px, $font-sub, $text-main);
+  }
+
+  &__edit {
+    position: relative;
+    margin-top: 8px;
+    padding: 0;
+
+    display: flex;
+    gap: 8px;
+
+    background-color: transparent;
+    border: none;
+  }
+
+  &__edit-icon {
+    height: 20px;
+    width: 20px;
+
+    background-image: url('/images/icons/edit.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__edit-text {
+    @include text-type(16px, 20px, $font-sub, $text-red);
+    text-decoration: underline;
+    text-decoration-thickness: .5px;
+  }
+
+  &__edit-window {
+    position: absolute;
+    top: 30px;
+
+    padding: 12px 16px 12px;
+    width: 150px;
+
+    background-color: $bg-secondary;
+    border-radius: 8px;
+
+    transform: translateY(-50px);
+    opacity: 0;
+
+    @include text-type(16px, 20px, $font-main, $text-main);
+  }
+
+  &__menu {
+    position: absolute;
+    padding: 0;
+
+    right: 0;
+
+    height: 16px;
+    width: 16px;
+
+    background: url('/images/icons/menu.svg');
+    border: none;
+  }
+
+  &__middle {
+    margin-top: 8px;
+
+    display: flex;
+    gap: 48px;
+  }
+
+  &__option {
+    @include text-type(16px, 24px, $font-sub, $text-main);
+    text-align: center;
+
+    &--bold {
+      font-size: 18px;
+    }
+  }
+
+  &__text {
+    @include text-type(16px, 24px, $font-sub, $text-main);
+  }
+}

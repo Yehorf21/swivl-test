@@ -1,0 +1,300 @@
+.navbar {
+  @include padding;
+  --navbar-gap: 12px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--navbar-gap);
+  padding-block: var(--navbar-gap);
+
+  height: 82px;
+  width: 100vw;
+  
+  background-color: $bg-secondary;
+
+  @include on-tablet {
+    --navbar-gap: 18px;
+
+    height: 102px;
+  }
+
+  @include on-desktop {
+    --navbar-gap: 24px;
+
+    height: 112px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 23px;
+    width: 50px;
+
+    background-image: url('/images/icons/logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__group {
+    display: flex;
+    gap: 12px;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+  }
+
+  &__profile-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @include on-tablet {
+      gap: 12px;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    @include on-desktop {
+      gap: 20px;
+    }
+  }
+
+  &__name {
+    --name-size: 12px;
+    --name-line-h: 16px;
+
+    margin: 0;
+
+    @include text-type(var(--name-size), var(--name-line-h), $font-sub, $text-main);
+
+    @include on-tablet {
+      --name-size: 16px;
+      --name-line-h: 20px;
+    }
+  }
+
+  &__profile-link {
+    height: 24px;
+    width: 24px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    @include on-tablet {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__arrow {
+    height: 16px;
+    width: 16px;
+
+    background-image: url('/images/icons/arrow.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  &__icons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    padding: 0;
+
+    height: 32px;
+    width: 32px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    border: none;
+    background: transparent;
+
+    &:hover {
+      @include on-hover-icon;
+    }
+
+    &--notifications {
+      background-image: url('/images/icons/notifications.svg');
+    }
+
+    &--gifts {
+      background-image: url('/images/icons/gifts.svg');
+    }
+
+    &--medium {
+      background-image: url('/images/icons/medium.svg');
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 36px;
+    }
+  }
+
+  &__tab {
+    --tab-size: 12px;
+    --tab-line-h: 14px;
+
+    position: relative;
+
+    @include text-type(var(--tab-size), var(--tab-line-h), $font-sub, $text-sub);
+    opacity: .6;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+
+    @include on-tablet {
+      --tab-size: 14px;
+      --tab-line-h: 16px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+
+      height: 4px;
+      width: 100%;
+      
+      background-image: linear-gradient(to right, #FF974F, #E32C75);
+      
+      transform: scaleX(0);
+      transition: all .3s ease-in-out;
+
+      @include on-tablet {
+        bottom: -18px;
+      }
+
+      @include on-desktop {
+        bottom: -16px;
+      }
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+
+    &--selected {
+      opacity: 1;
+      
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__post {
+    position: absolute;
+
+    right: 16px;
+    bottom: -24px;
+    
+    height: 48px;
+    width: 48px;
+
+    background-image: linear-gradient(to right, #FF974F, #E32C75);
+    border-radius: 50%;
+
+    border: none;
+    color: $bg-secondary;
+
+    font-family: $font-main;
+    font-size: 36px;
+    font-weight: 200;
+
+    transition: all .5s ease-in-out;
+    z-index: 100;
+    
+    @include on-tablet {
+      height: 64px;
+      width: 64px;
+
+      right: 32px;
+      bottom: -32px;
+
+      font-size: 48px;
+    }
+
+    @include on-desktop {
+      right: 135px;
+    }
+
+    &:hover {
+      border: 1px solid $text-main;
+    }
+  }
+
+  &__post-form {
+    position: fixed;
+    bottom: 150px;
+    left: calc(50% - 40vw);
+
+    z-index: 200;
+
+    @include on-tablet {
+      left: calc(50% - 30vw);
+    }
+  }
+
+  &__post-input {
+    padding: 12px 16px;
+
+    width: 80vw;
+    height: 60px;
+
+    border-block: none;
+    border-color: $text-red;
+
+    @include text-type(18px, 22px, $font-main, $text-sub);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    outline: none;
+
+    @include on-tablet {
+      width: 60vw;
+    }
+
+    &::placeholder {
+      @include text-type(inherit, inherit, inherit, $text-extra);
+    }
+  }
+}

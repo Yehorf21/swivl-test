@@ -1,0 +1,93 @@
+.profile {
+  @include padding;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @media (min-width: 1100px) {
+    flex-direction: row;
+  }
+
+  &__cards {
+    margin-top: 70px;
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    
+    justify-content: center;
+
+    @media (min-width: 1100px) {
+      width: 70%;
+
+      justify-content: unset;
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+
+    top: -70px;
+    left: 0;
+    
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    
+    @include on-tablet {
+      // 112px is approximately half the width of the toggle
+      left: calc(50% - 112px);
+    }
+
+    @media (min-width: 1100px) {
+      left: 0;
+    }
+  }
+
+  &__text {
+    @include text-type(16px, 22px, $font-sub, $text-sub);
+    font-weight: 600;
+
+    background-color: transparent;
+    border: none;
+  }
+
+  &__switch-outer {
+    position: relative;
+
+    height: 24px;
+    width: 40px;
+
+    background-color: #ED5267;
+    border-radius: 20px;
+
+    cursor: pointer;
+    border: none;
+    transition: all .5s ease-in-out;
+
+    &--public {
+      background-color: $text-main;
+    }
+  }
+
+  &__switch-inner {
+    position: absolute;
+
+    right: 3px;
+    top: 3px;
+
+    height: 18px;
+    width: 18px;
+
+    background-color: $bg-secondary;
+    border-radius: 50%;
+    border: none;
+
+    &--public {
+      right: unset;
+      left: 3px;
+    }
+  }
+}

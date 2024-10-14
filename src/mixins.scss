@@ -1,0 +1,77 @@
+@mixin on-hover-icon {
+  animation: iconHover .5s ease-in-out forwards;
+}
+
+@keyframes iconHover {
+  0% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@mixin text-type($fontSize, $lineHeight, $fontFamily, $color) {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+
+  color: $color;
+
+  text-decoration: none;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin on-mobile {
+  @media (max-width: 639px) {
+    @content;
+  }
+};
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+};
+
+@mixin on-desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin padding {
+  --margin: 16px;
+
+  padding-inline: var(--margin); 
+
+  @include on-tablet {
+    --margin: 32px;
+  }
+
+  @include on-desktop {
+    --margin: 135px;
+  }
+}
+
+@mixin cancel-padding {
+  margin-left: -16px; 
+
+  @include on-tablet {
+    margin-left: -32px;
+  }
+
+  @include on-desktop {
+    margin-left: -135px;
+  }
+}

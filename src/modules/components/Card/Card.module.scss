@@ -1,0 +1,157 @@
+.card {
+  position: relative;
+  padding: 56px 24px 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  height: 260px;
+  width: 320px;
+
+  background-color: $bg-secondary;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  @include on-tablet {
+    padding: 56px 24px 24px;
+
+    height: 280px;
+    width: 350px;
+    
+    gap: 46px;
+  }
+
+  &__share {
+    position: absolute;
+    top: 24px;
+
+    display: flex;
+    gap: 2px;
+    align-items: center;
+  }
+
+  &__share-text {
+    @include text-type(16px, 22px, $font-sub, $text-sub);
+    font-weight: 600;
+
+    &--highlighted {
+      background-color: $bg-main;
+      border-radius: 6px;
+    }
+  }
+
+  &__icon {
+    height: 18px;
+    width: 18px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--share {
+      background-image: url('/images/icons/share.svg');
+    }
+
+    &--view {
+      background-image: url('/images/icons/view.svg');
+    }
+
+    &--like {
+      background-image: url('/images/icons/like.svg');
+    }
+  }
+
+  &__title {
+    @include text-type(28px, 34px, $font-main, $text-sub);
+    min-height: 132px;
+
+    @include on-tablet {
+      @include text-type(36px, 44px, $font-main, $text-sub);
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 20px;
+  }
+
+  &__author {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__author-image {
+    height: 24px;
+    width: 24px;
+
+    background-color: #B2B3BB;
+    border-radius: 50%;
+  }
+
+  &__author-name {
+    @include text-type(14px, 19px, $font-sub, $text-sub);
+    font-weight: 600;
+  }
+
+  &__info-share {
+    @include text-type(18px, 25px, $font-sub, $text-red);
+
+    background-color: transparent;
+    border: none;
+  }
+
+  &__activities {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__activity {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__activity-value {
+    @include text-type(14px, 19px, $font-sub, $text-sub);
+    font-weight: 600;
+  }
+
+  &__window {
+    position: absolute;
+    padding: 16px 24px;
+    width: 100%;
+
+    left: 0;
+    bottom: 0;
+
+    border-radius: 6px;
+    background-color: $text-main;
+
+    @include text-type(16px, 20px, $font-main, $bg-main);
+    font-weight: 500;
+
+    transform-origin: bottom;
+  }
+}
+
+.window-shown {
+  animation: windowShown .5s ease-in-out forwards;
+}
+
+.appear-animation {
+  animation: appear .5s ease-in-out forwards;
+}
+
+@keyframes appear {
+  from { opacity: .5; }
+  to { opacity: 1; }
+}
+
+@keyframes windowShown {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); opacity: 1;}
+}

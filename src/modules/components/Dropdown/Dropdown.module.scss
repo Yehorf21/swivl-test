@@ -1,0 +1,90 @@
+.dropdown {
+  position: absolute;
+  top: 30px;
+
+  background-color: $bg-secondary;
+  border-radius: 8px;
+
+  transform: translateY(-50px);
+  opacity: 0;
+  pointer-events: none;
+
+  z-index: 500;
+
+  @include text-type(16px, 20px, $font-main, $text-main);
+
+  &__menu-window {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: $bg-secondary;
+
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+
+  &__option {
+    padding: 8px 24px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    border: none;
+    background-color: transparent;
+
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      background-color: $bg-main;
+    }
+  }
+
+  &__icon {
+    height: 20px;
+    width: 20px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--block {
+      background-image: url('/images/icons/block.svg');
+    }
+
+    &--report {
+      background-image: url('/images/icons/report.svg');
+    }
+
+    &--close {
+      position: absolute;
+      
+      height: 24px;
+      width: 24px;
+      
+      top: calc(50% - 12px);
+      right: -32px;
+      
+      background-image: url('/images/icons/close.svg');
+      
+      border: none;
+      background-color: $bg-secondary;
+      border-radius: 50%;
+    }
+  }
+
+  &__text {
+    @include text-type(16px, 22px, $font-sub, $text-sub);
+  }
+}
+
+.window-pop {
+  animation: pop-up .5s ease-in-out forwards;
+}
+
+@keyframes pop-up {
+  to {transform: scaleY(1); opacity: 1; pointer-events: all;}
+}
